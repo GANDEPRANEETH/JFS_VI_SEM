@@ -1,5 +1,5 @@
 
-class Hello {
+class Main{
     public static void main(String arg[]) {
         int result = 0;
         int a = Integer.parseInt(arg[0]);
