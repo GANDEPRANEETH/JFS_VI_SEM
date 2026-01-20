@@ -151,6 +151,7 @@ class Main {
 }
  */
 /// linked list program
+/*
 import java.util.*;
 public class Main{
     public static void main(String []args){
@@ -162,6 +163,170 @@ public class Main{
         System.out.println(list);
     }
 }
+*/
+///comparable object
+/// one to one
+/*
+class Passport{
+    int passportNo;
+    String nationality;
+    Passport(int passportNo,String nationality){
+        this.passportNo=passportNo;
+        this.nationality=nationality;
+
+    }
+}
+class person{
+    int id;
+    String name;
+    Passport pass;
+    person(int id,String name,Passport pass){
+        this.id=id;
+        this.name=name;
+        this.pass=pass;
+    }
+}
+public class Main {
+    public static void main(String[] args){
+        Passport pass=new Passport(987654,"indian");
+        person m=new person(1,"Krishna",pass);
+        System.out.println("person name:"+m.name);
+        System.out.println("passportNo"+m.pass.passportNo);
+
+    }
+}
+*/
+///one to many
+/*
+import java.util.*;
+class Employee{
+    int id;
+    String name;
+    Employee(int id,String name){
+        this.id=id;
+        this.name=name;
+    }
+}
+class Department{
+    int deptID;
+    String deptname;
+    List<Employee>empList;
+    Department(int deptID,String deptname,List<Employee>empList){
+        this.deptID=deptID;
+        this.deptname=deptname;
+        this.empList=empList;
+
+    }
+
+}
+public class Main{
+    public static void main(String[] args){
+        Employee e1=new Employee(1,"ravi");
+        Employee e2=new Employee(2,"Anitha");
+        List<Employee>empList=new ArrayList<Employee>();
+        empList.add(e1);
+        empList.add(e2);
+        Department dept=new Department(101,"cse",empList);
+        System.out.println("Department:"+dept.deptname);
+        for(Employee e:dept.empList){
+            System.out.println(e.id+" "+e.name);
+        }
+    }
+}
+*/
+///Many to one
+/*
+class Department {
+    int deptId;
+    String deptName;
+
+    Department(int deptId, String deptName) {
+        this.deptId = deptId;
+        this.deptName = deptName;
+    }
+}
+
+class Employee {
+    int id;
+    String name;
+    Department dept;  // MANY employees → ONE department
+
+    Employee(int id, String name, Department dept) {
+        this.id = id;
+        this.name = name;
+        this.dept = dept;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Department d = new Department(101, "CSE");
+
+        Employee e1 = new Employee(1, "Ravi", d);
+        Employee e2 = new Employee(2, "Anitha", d);
+
+        System.out.println(e1.name + " works in " + e1.dept.deptName);
+        System.out.println(e2.name + " works in " + e2.dept.deptName);
+    }
+}
+*/
+/// Many to many
+import java.util.*;
+
+class Student {
+    int id;
+    String name;
+    List<Course> courses;
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+        this.courses = new ArrayList<>();
+    }
+}
+
+class Course {
+    int courseId;
+    String courseName;
+    List<Student> students;
+
+    Course(int courseId, String courseName) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.students = new ArrayList<>();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Student s1 = new Student(1, "Ravi");
+        Student s2 = new Student(2, "Anitha");
+
+        Course c1 = new Course(101, "Java");
+        Course c2 = new Course(102, "Python");
 
 
+        s1.courses.add(c1);
+        s1.courses.add(c2);
+
+        s2.courses.add(c1);
+
+        c1.students.add(s1);
+        c1.students.add(s2);
+
+        c2.students.add(s1);
+
+        System.out.println("Courses of " + s1.name);
+        for (Course c : s1.courses) {
+            System.out.println(c.courseName);
+        }
+
+        System.out.println("\nStudents in " + c1.courseName);
+        for (Student s : c1.students) {
+            System.out.println(s.name);
+        }
+    }
+}
 
