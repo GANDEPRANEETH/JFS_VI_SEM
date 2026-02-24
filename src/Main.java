@@ -272,6 +272,7 @@ public class Main {
 }
 */
 /// Many to many
+/*
 import java.util.*;
 
 class Student {
@@ -329,4 +330,374 @@ public class Main {
         }
     }
 }
+*/
+/*
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
 
+        while (n != 1) {
+            System.out.print(n + " ");
+
+            if (n % 2 == 0) {
+                n = n / 2;
+            } else {
+                n = 3 * n + 1;
+            }
+        }
+
+        System.out.print(1);
+    }
+}
+*/
+/*
+import java.util.Arrays;
+public class Main{
+    public static void main(String args[]){
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+        Arrays.sort(
+                arr, (a, b) -> Integer.compare(a[0]+a[1], b[0]+b[1])
+        );
+        for (int[] row : arr) {
+            System.out.println(row[0]+" , "+row[1]);
+            //System.out.println(Arrays.toString(row));
+        }
+    }
+}
+
+/*
+		String names[] = {"Chaithanya",
+							"Kalyan",
+							"Lokesh",
+							"Praneeth",
+							"Charan",
+							"Preethi",
+							"Archana"
+		};
+*/
+/*
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+
+        String[] names = {
+                "Chaithanya",
+                "Kalyan",
+                "Lokesh",
+                "Praneeth",
+                "Charan",
+                "Preethi",
+                "Archana"
+        };
+
+        //  Name as key, marks as value
+        HashMap<String, int[]> map = new HashMap<>();
+
+        for (int i = 0; i < names.length; i++) {
+            map.put(names[i], arr[i]);
+        }
+
+        // Print data
+        for (String name : map.keySet()) {
+            int[] marks = map.get(name);
+            System.out.println(name + " -> "
+                    + marks[0] + " , " + marks[1]);
+        }
+    }
+}
+*/
+/*
+import java.util.Scanner;
+
+public class Main {
+
+    // Method to check prime
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        boolean result = isPrime(num);
+        System.out.println(result);
+
+        sc.close();
+    }
+}
+*/
+/*
+Write a program to read a number and check given number is Prime or Not?
+
+Input: number (ex. 7)
+Output: True (Prime) or False (Not)
+*/
+//SeiveOfEratosthenes prime number group of how to know prime numbers
+/*
+import java.util.Arrays;
+public class Main {
+    public static void main(String args[]){
+        int start = 10, end = 50;
+        boolean status[] = new boolean[end+1];
+        //Initially, declaring all numbers as prime
+		/*for(int i=0; i<=end; i++){
+			status[i] = true;
+		}
+        Arrays.fill(status, true);
+        for(int i=2; i<=Math.sqrt(end);i++){
+            if(status[i] == true){
+                for(int j=i*i; j<status.length; j=j+i){
+                    status[j] = false;
+                }
+            }
+        }
+        int counter = 0;
+        for(int i=start; i<= end; i++){
+            if(status[i] == true){
+                System.out.println(i);
+                counter++;
+            }
+        }
+        System.out.println("Total Prime Numbers: "+counter);
+    }
+}
+*/
+/*
+import java.util.Arrays;
+public class Main{
+    public static void main(String args[]){
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+        String names[] = {"Chaithanya",
+                "Kalyan",
+                "Lokesh",
+                "Praneeth",
+                "Charan",
+                "Preethi",
+                "Archana"
+        };
+        Arrays.sort(arr, (a, b) -> Integer.compare(a[0]+a[1], b[0]+b[1]));
+        for (int[] row : arr) {
+            System.out.println(row[0]+" , "+row[1]);
+            //System.out.println(Arrays.toString(row));
+        }
+    }
+}
+*/
+/*
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+
+        String[] names = {
+                "Chaithanya",
+                "Kalyan",
+                "Lokesh",
+                "Praneeth",
+                "Charan",
+                "Preethi",
+                "Archana"
+        };
+
+        // Name as key, marks as value
+        //HashMap<String, int[]> map = new HashMap<>(); // un-ordered - not follows indexing
+        LinkedHashMap<String, int[]> map = new LinkedHashMap<>(); // ordered - it follows indexing
+        for (int i = 0; i < names.length; i++) {
+            map.put(names[i], arr[i]);
+        }
+
+        // Print data
+        for (String name : map.keySet()) {
+            int[] marks = map.get(name);
+            System.out.println(name + " -> "
+                    + marks[0] + " , " + marks[1]);
+        }
+    }
+}
+*/
+/*
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+
+        String[] names = {
+                "Chaithanya",
+                "Kalyan",
+                "Lokesh",
+                "Praneeth",
+                "Charan",
+                "Preethi",
+                "Archana"
+        };
+
+        LinkedHashMap<String, int[]> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < names.length; i++) {
+            map.put(names[i], arr[i]);
+        }
+
+        // Step 1: Convert Data to List
+        List<Map.Entry<String, int[]>> list = new ArrayList<>(map.entrySet());
+
+        System.out.println("\n Before sorting ");
+        for (Map.Entry<String, int[]> r : map.entrySet()){
+            System.out.println(r.getKey() + " -> "
+                    + r.getValue()[0] + " , "
+                    + r.getValue()[1]);
+        }
+
+        // Step 2: Sort by total marks
+        System.out.println("\n after sorting ");
+        list.sort((a, b) -> {
+            int totalA = a.getValue()[0] + a.getValue()[1];
+            int totalB = b.getValue()[0] + b.getValue()[1];
+            return Integer.compare(totalA, totalB); // Ascending
+        });
+
+        // Step 3: Store in new LinkedHashMap
+        LinkedHashMap<String, int[]> sortedMap =
+                new LinkedHashMap<>();
+
+        for (Map.Entry<String, int[]> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        // Print sorted map
+        for (Map.Entry<String, int[]> entry : sortedMap.entrySet()) {
+            int[] marks = entry.getValue();
+            int total = marks[0] + marks[1];
+            System.out.println(entry.getKey() + " -> "
+                    + marks[0] + " , "
+                    + marks[1] + " | Total: " + total);
+        }
+    }
+}
+*/
+import java.util.*;
+
+public class Main{
+    public static void main(String args[]) {
+
+        int[][] arr = {
+                {30, 50},
+                {11, 21},
+                {79, 19},
+                {35, 65},
+                {21, 4},
+                {45, 55},
+                {39, 40}
+        };
+
+        String[] names = {
+                "Chaithanya",
+                "Kalyan",
+                "Lokesh",
+                "Praneeth",
+                "Charan",
+                "Preethi",
+                "Archana"
+        };
+
+        LinkedHashMap<String, int[]> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < names.length; i++) {
+            map.put(names[i], arr[i]);
+        }
+
+        // Step 1: Convert Data to List
+        List<Map.Entry<String, int[]>> list = new ArrayList<>(map.entrySet());
+
+        System.out.println("\n Before sorting ");
+        for (Map.Entry<String, int[]> r : map.entrySet()){
+            System.out.println(r.getKey() + " -> "
+                    + r.getValue()[0] + " , "
+                    + r.getValue()[1]);
+        }
+
+        // Step 2: Sort by total marks
+        System.out.println("\n after sorting ");
+        list.sort((a, b) -> {
+            return a.getKey().compareTo(b.getKey()); // Ascending
+        });
+
+        // Step 3: Store in new LinkedHashMap
+        LinkedHashMap<String, int[]> sortedMap =
+                new LinkedHashMap<>();
+
+        for (Map.Entry<String, int[]> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        // Print sorted map
+        for (Map.Entry<String, int[]> entry : sortedMap.entrySet()) {
+            int[] marks = entry.getValue();
+            int total = marks[0] + marks[1];
+            System.out.println(entry.getKey() + " -> "
+                    + marks[0] + " , "
+                    + marks[1] + " | Total: " + total);
+        }
+    }
+}
